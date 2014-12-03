@@ -238,9 +238,8 @@ static const uint32_t bottomCollision = 0x1 << 4;
         
         [self addChild:myLabel];
         
-        
-        
         [self removeAllActions];
+        [self.delegate didDie];
         //[SKAction waitForDuration:3.0];
         //[myLabel removeFromParent];
         //[self reloadInputViews];

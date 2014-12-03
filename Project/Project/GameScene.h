@@ -8,6 +8,15 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@protocol TunnelDelegate <NSObject>
+
+@required
+-(void)didDie;
+
+@end
+
 @interface GameScene : SKScene
+
+@property (nonatomic) id<TunnelDelegate> delegate;
 
 @end

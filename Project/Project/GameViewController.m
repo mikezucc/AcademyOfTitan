@@ -9,6 +9,11 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 
+@interface GameViewController () <TunnelDelegate>
+
+
+@end
+
 @implementation SKScene (Unarchive)
 
 + (instancetype)unarchiveFromFile:(NSString *)file {
@@ -43,6 +48,7 @@
     
     // Create and configure the scene.
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    scene.delegate = self;
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
@@ -52,6 +58,12 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
+}
+
+-(void)didDie
+{
+    NSLog(@"did die on view controller");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
