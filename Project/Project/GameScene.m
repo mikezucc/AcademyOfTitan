@@ -26,7 +26,7 @@
 
 @implementation GameScene
 
-static NSInteger const kObstacleGap = 130;
+static NSInteger const kObstacleGap = 150;
 static const uint32_t playerClass = 0x1 << 0;
 static const uint32_t enviroClass = 0x1 << 1;
 static const uint32_t effectsClass = 0x1 << 2;
@@ -79,9 +79,10 @@ static const uint32_t bottomCollision = 0x1 << 4;
     SKTexture* playerTxtr1 = [SKTexture textureWithImageNamed:@"playerMan"];
     playerTxtr1.filteringMode = SKTextureFilteringNearest;
     
-    SKTexture* leftWallTxtr = [SKTexture textureWithImageNamed:@"leftwallwider"];
+    SKTexture* leftWallTxtr = [SKTexture textureWithImageNamed:@"tunnelrunner0"];
     leftWallTxtr.filteringMode = SKTextureFilteringNearest;
-    SKTexture* rightWallTxtr = [SKTexture textureWithImageNamed:@"rightwallwider"];
+
+    SKTexture* rightWallTxtr = [SKTexture textureWithImageNamed:@"tunnelrunner1"];
     rightWallTxtr.filteringMode = SKTextureFilteringNearest;
     
     _playerNode = [SKSpriteNode spriteNodeWithTexture:playerTxtr1];
@@ -139,9 +140,9 @@ static const uint32_t bottomCollision = 0x1 << 4;
     
     [self addChild:_playerNode];
     
-    _dmvObstacleLeftTxtr = [SKTexture textureWithImageNamed:@"obstacleLeft"];
+    _dmvObstacleLeftTxtr = [SKTexture textureWithImageNamed:@"tunnelrunnery2p"];
     _dmvObstacleLeftTxtr.filteringMode = SKTextureFilteringNearest;
-    _dmvObstacleRightTxtr = [SKTexture textureWithImageNamed:@"obstacleLeft"];
+    _dmvObstacleRightTxtr = [SKTexture textureWithImageNamed:@"tunnelrunnery2p"];
     _dmvObstacleRightTxtr.filteringMode = SKTextureFilteringNearest;
     
     SKAction* moveObstacles = [SKAction moveByX:0 y:-((self.frame.size.height)+140) duration:4];
@@ -171,7 +172,7 @@ static const uint32_t bottomCollision = 0x1 << 4;
     CGFloat x = arc4random() % (NSInteger)( CGRectGetMidX(self.frame)/3 );
     NSLog(@"%ld random x",(long)x);
     SKSpriteNode* _obstacleLeft = [SKSpriteNode spriteNodeWithTexture:_dmvObstacleLeftTxtr];
-    _obstacleLeft.position = CGPointMake( CGRectGetMidX(self.frame)- 260 + x, 200);
+    _obstacleLeft.position = CGPointMake( CGRectGetMidX(self.frame)- 450 + x, 200);
     _obstacleLeft.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_dmvObstacleLeftTxtr.size];
     _obstacleLeft.physicsBody.contactTestBitMask = obstacleCollision;
     _obstacleLeft.physicsBody.dynamic = NO;
