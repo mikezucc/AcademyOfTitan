@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A145F072-053F-4815-B756-542478B391E5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TunnelRunner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>60F001540C5EF52912729D7AF6C5019B7C2E6433</key>
+		<string>https://github.com/mikezucc/AcademyOfTitan.git</string>
+		<key>FBA1BD76B03447B0D2394E208226526D7A843FFB</key>
+		<string>https://github.com/mikezucc/lastproject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TunnelRunner/TunnelRunner.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60F001540C5EF52912729D7AF6C5019B7C2E6433</key>
+		<string>../../..</string>
+		<key>FBA1BD76B03447B0D2394E208226526D7A843FFB</key>
+		<string>../../../../lastproject</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mikezucc/AcademyOfTitan.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>60F001540C5EF52912729D7AF6C5019B7C2E6433</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60F001540C5EF52912729D7AF6C5019B7C2E6433</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AcademyOfTitan</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FBA1BD76B03447B0D2394E208226526D7A843FFB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lastproject</string>
+		</dict>
+	</array>
+</dict>
+</plist>

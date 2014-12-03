@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0E2796131A2ECF56003E9529 /* MasterMindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2796111A2ECF56003E9529 /* MasterMindViewController.swift */; };
 		0E2796141A2ECF56003E9529 /* WhackAMoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2796121A2ECF56003E9529 /* WhackAMoleViewController.swift */; };
+		0E2E7C881A2ED1E300710CBC /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E7C841A2ED1E300710CBC /* GameScene.m */; };
+		0E2E7C891A2ED1E300710CBC /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E7C861A2ED1E300710CBC /* GameViewController.m */; };
+		0E2E7C8B1A2ED20F00710CBC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0E2E7C8A1A2ED20F00710CBC /* GameScene.sks */; };
 		847F6E531A1183E0007CF9D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F6E521A1183E0007CF9D7 /* main.m */; };
 		847F6E561A1183E0007CF9D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F6E551A1183E0007CF9D7 /* AppDelegate.m */; };
 		847F6E591A1183E0007CF9D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F6E581A1183E0007CF9D7 /* ViewController.m */; };
@@ -33,6 +36,11 @@
 /* Begin PBXFileReference section */
 		0E2796111A2ECF56003E9529 /* MasterMindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterMindViewController.swift; sourceTree = "<group>"; };
 		0E2796121A2ECF56003E9529 /* WhackAMoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhackAMoleViewController.swift; sourceTree = "<group>"; };
+		0E2E7C841A2ED1E300710CBC /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		0E2E7C851A2ED1E300710CBC /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		0E2E7C861A2ED1E300710CBC /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		0E2E7C871A2ED1E300710CBC /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		0E2E7C8A1A2ED20F00710CBC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		847F6E4D1A1183E0007CF9D7 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847F6E511A1183E0007CF9D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847F6E521A1183E0007CF9D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E2E7C8C1A2ED21700710CBC /* sprite gam */ = {
+			isa = PBXGroup;
+			children = (
+				0E2E7C8A1A2ED20F00710CBC /* GameScene.sks */,
+				0E2E7C871A2ED1E300710CBC /* GameScene.h */,
+				0E2E7C841A2ED1E300710CBC /* GameScene.m */,
+				0E2E7C851A2ED1E300710CBC /* GameViewController.h */,
+				0E2E7C861A2ED1E300710CBC /* GameViewController.m */,
+			);
+			name = "sprite gam";
+			sourceTree = "<group>";
+		};
+		0E2E7C8D1A2ED21F00710CBC /* ray game */ = {
+			isa = PBXGroup;
+			children = (
+				0E2796111A2ECF56003E9529 /* MasterMindViewController.swift */,
+				0E2796121A2ECF56003E9529 /* WhackAMoleViewController.swift */,
+			);
+			name = "ray game";
+			sourceTree = "<group>";
+		};
 		847F6E441A1183E0007CF9D7 = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +119,7 @@
 		847F6E4F1A1183E0007CF9D7 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				0E2796111A2ECF56003E9529 /* MasterMindViewController.swift */,
-				0E2796121A2ECF56003E9529 /* WhackAMoleViewController.swift */,
+				0E2E7C8D1A2ED21F00710CBC /* ray game */,
 				847F6E541A1183E0007CF9D7 /* AppDelegate.h */,
 				847F6E551A1183E0007CF9D7 /* AppDelegate.m */,
 				847F6E571A1183E0007CF9D7 /* ViewController.h */,
@@ -99,6 +127,7 @@
 				847F6E781A11966A007CF9D7 /* DefaultWindow.h */,
 				847F6E791A11966A007CF9D7 /* DefaultWindow.m */,
 				847F6E5A1A1183E0007CF9D7 /* Main.storyboard */,
+				0E2E7C8C1A2ED21700710CBC /* sprite gam */,
 				847F6E761A1186F0007CF9D7 /* burg_eltz_deviantart_by_gingado-d83yi7h.jpg */,
 				847F6E5D1A1183E0007CF9D7 /* Images.xcassets */,
 				847F6E5F1A1183E0007CF9D7 /* LaunchScreen.xib */,
@@ -214,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847F6E771A1186F0007CF9D7 /* burg_eltz_deviantart_by_gingado-d83yi7h.jpg in Resources */,
+				0E2E7C8B1A2ED20F00710CBC /* GameScene.sks in Resources */,
 				847F6E5C1A1183E0007CF9D7 /* Main.storyboard in Resources */,
 				847F6E611A1183E0007CF9D7 /* LaunchScreen.xib in Resources */,
 				847F6E5E1A1183E0007CF9D7 /* Images.xcassets in Resources */,
@@ -234,9 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2E7C891A2ED1E300710CBC /* GameViewController.m in Sources */,
 				847F6E591A1183E0007CF9D7 /* ViewController.m in Sources */,
 				847F6E561A1183E0007CF9D7 /* AppDelegate.m in Sources */,
 				0E2796141A2ECF56003E9529 /* WhackAMoleViewController.swift in Sources */,
+				0E2E7C881A2ED1E300710CBC /* GameScene.m in Sources */,
 				0E2796131A2ECF56003E9529 /* MasterMindViewController.swift in Sources */,
 				847F6E531A1183E0007CF9D7 /* main.m in Sources */,
 				847F6E7A1A11966A007CF9D7 /* DefaultWindow.m in Sources */,

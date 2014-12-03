@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="G1d-jd-uQF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4ua-hs-JnS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -141,12 +141,12 @@
         <!--Flappy Bird-->
         <scene sceneID="AUn-nn-0Md">
             <objects>
-                <viewController id="4ua-hs-JnS" userLabel="Flappy Bird" sceneMemberID="viewController">
+                <viewController id="4ua-hs-JnS" userLabel="Flappy Bird" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jPL-51-BgX"/>
                         <viewControllerLayoutGuide type="bottom" id="og1-3a-UuY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MvO-Ji-tgT">
+                    <view key="view" contentMode="scaleToFill" id="MvO-Ji-tgT" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -159,7 +159,7 @@
         <!--Whack a Mole-->
         <scene sceneID="Za3-iv-XXl">
             <objects>
-                <viewController id="8mi-60-Q3W" userLabel="Whack a Mole" sceneMemberID="viewController">
+                <viewController id="8mi-60-Q3W" userLabel="Whack a Mole" customClass="WhackAMoleViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vOd-ga-E9I"/>
                         <viewControllerLayoutGuide type="bottom" id="UO0-an-HLO"/>
@@ -167,8 +167,55 @@
                     <view key="view" contentMode="scaleToFill" id="7RB-Mc-GSj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QYt-Zr-zgL">
+                                <rect key="frame" x="40" y="57" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mqf-bq-DTg">
+                                <rect key="frame" x="123" y="57" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQV-AE-iQw">
+                                <rect key="frame" x="206" y="57" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idm-IZ-Cdb">
+                                <rect key="frame" x="40" y="140" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1TL-I4-oLC">
+                                <rect key="frame" x="123" y="140" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vah-aN-VyX">
+                                <rect key="frame" x="206" y="140" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nH2-0d-XBb">
+                                <rect key="frame" x="40" y="223" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xkq-yM-3IH">
+                                <rect key="frame" x="123" y="223" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-wp-rsA">
+                                <rect key="frame" x="206" y="223" width="75" height="75"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dur-AT-DQA">
+                                <rect key="frame" x="138" y="28" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="time" destination="dur-AT-DQA" id="naY-s5-7Qc"/>
+                        <outletCollection property="holes" destination="QYt-Zr-zgL" collectionClass="NSMutableArray" id="um9-bw-EHj"/>
+                        <outletCollection property="holes" destination="Mqf-bq-DTg" collectionClass="NSMutableArray" id="E6S-fL-aDm"/>
+                        <outletCollection property="holes" destination="IQV-AE-iQw" collectionClass="NSMutableArray" id="8FX-IC-NgV"/>
+                        <outletCollection property="holes" destination="idm-IZ-Cdb" collectionClass="NSMutableArray" id="g1a-hi-0Wm"/>
+                        <outletCollection property="holes" destination="1TL-I4-oLC" collectionClass="NSMutableArray" id="xmH-FD-9GS"/>
+                        <outletCollection property="holes" destination="vah-aN-VyX" collectionClass="NSMutableArray" id="gYy-1B-bUq"/>
+                        <outletCollection property="holes" destination="nH2-0d-XBb" collectionClass="NSMutableArray" id="Qha-rE-G1N"/>
+                        <outletCollection property="holes" destination="Xkq-yM-3IH" collectionClass="NSMutableArray" id="SfX-jl-QqL"/>
+                        <outletCollection property="holes" destination="pKB-wp-rsA" collectionClass="NSMutableArray" id="YMg-cK-mxJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MB0-Iu-Ss7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
