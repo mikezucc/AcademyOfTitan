@@ -246,10 +246,23 @@ static const uint32_t bottomCollision = 0x1 << 4;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         myLabel.zPosition = 150;
         
-        [self addChild:myLabel];
+        _playerNode.physicsBody.dynamic = NO;
+        // Running player animation
+        SKTexture * runTexture1 = [SKTexture textureWithImageNamed:@"explosion4.png"];
+        SKTexture * runTexture2 = [SKTexture textureWithImageNamed:@"explosion3.png"];
+        SKTexture * runTexture3 = [SKTexture textureWithImageNamed:@"explosion2_2.png"];
+        SKTexture * runTexture4 = [SKTexture textureWithImageNamed:@"explosion2_1.png"];
         
-        [self removeAllActions];
-        [self.delegate didDie];
+        NSArray * runTexture = @[runTexture1, runTexture2, runTexture3, runTexture4, runTexture3, runTexture2, runTexture1];
+        [self runAction:[SKAction playSoundFileNamed:@"bomb3.wav" waitForCompletion:NO]];
+        SKAction *runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.3 resize:YES restore:NO];
+        [_playerNode runAction:runAnimation completion:^{
+            //[_playerNode removeAllChildren];
+            [self removeAllActions];
+            [self.delegate didDie];
+        }];
+        
+        [self addChild:myLabel];
         //[SKAction waitForDuration:3.0];
         //[myLabel removeFromParent];
         //[self reloadInputViews];
