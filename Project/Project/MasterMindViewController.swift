@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate {
 
     @IBOutlet var slots: [UIPickerView]!
     
@@ -16,6 +16,9 @@ class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet var correctDigits: UILabel!
     
     @IBOutlet var label: UILabel!
+    
+    @IBOutlet var counter: UILabel!
+    var maxTime = 60
     
     let pickerData:[String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     var secretcode:[String] = []
@@ -25,6 +28,18 @@ class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPick
 
         // Do any additional setup after loading the view.
         
+        self.label.text = ""
+        for (index, slot) in enumerate(self.slots) {
+            slot.selectRow(8190, inComponent: 0, animated: false)
+            self.secretcode.append("\(arc4random_uniform(10))")
+            self.label.text = self.label.text! + self.secretcode[index]
+        }
+    }
+    
+    func restart()
+    {
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update:"), userInfo: nil, repeats: true)
+        counter.text = "\(maxTime)"
         self.label.text = ""
         for (index, slot) in enumerate(self.slots) {
             slot.selectRow(8190, inComponent: 0, animated: false)
@@ -48,6 +63,23 @@ class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func update(sender: NSTimer)
+    {
+        counter.text = "\(--maxTime)"
+        if (maxTime == 0)
+        {
+            sender.invalidate()
+            var alertView:UIAlertView = UIAlertView(title: "NO", message: "out of time!", delegate: self, cancelButtonTitle: "quit", otherButtonTitles: "retry")
+            alertView.tag = 1
+            alertView.show()
+        }
+    }
+    
+    func endGame()
+    {
+        
+    }
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -59,6 +91,25 @@ class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return self.pickerData[row%10]
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if (alertView.tag == 0)
+        {
+            // correct code alert
+            if (buttonIndex == 0)
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
+        else
+        {
+            
+        }
     }
 
     @IBAction func match(sender: AnyObject) {
@@ -88,6 +139,12 @@ class MasterMindViewController: UIViewController, UIPickerViewDataSource, UIPick
                     code_copy.removeAtIndex(index)
                 }
             }
+        }
+        if (correct_digits == slots.count)
+        {
+            var alertView:UIAlertView = UIAlertView(title: "you win", message: "you got the code", delegate: self, cancelButtonTitle: "sweet", otherButtonTitles: "retry")
+            alertView.tag = 0
+            alertView.show()
         }
 
         self.correctPositions.text = String(correct_positions)

@@ -63,7 +63,7 @@
 -(void)didDie
 {
     NSLog(@"did die on view controller");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

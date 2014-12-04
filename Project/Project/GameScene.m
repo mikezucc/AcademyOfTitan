@@ -37,6 +37,17 @@ static const uint32_t bottomCollision = 0x1 << 4;
 {
     self.physicsWorld.contactDelegate = self;
     
+    SKTexture* backText = [SKTexture textureWithImageNamed:@"background"];
+    backText.filteringMode = SKTextureFilteringNearest;
+    
+    SKSpriteNode *background = [SKSpriteNode spriteNodeWithTexture:backText];
+    background.physicsBody.dynamic = NO;
+    background.position = CGPointMake(CGRectGetMidX(self.frame),
+                                   CGRectGetMidY(self.frame));
+    background.zPosition = -100;
+    [background setScale:2.0];
+    [self addChild:background];
+    
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     
@@ -48,17 +59,6 @@ static const uint32_t bottomCollision = 0x1 << 4;
     [self addChild:myLabel];
     [SKAction waitForDuration:1.0];
     [myLabel removeFromParent];
-    
-    _hitCountLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    _hitCountLabel.text = @"0 hits";
-    _hitCountLabel.fontSize = 30;
-    _hitCountLabel.position = CGPointMake(CGRectGetMidX(self.frame)+100, 500);
-    _passCountLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    _passCountLabel.text = @"0 passed";
-    _passCountLabel.fontSize = 30;
-    _passCountLabel.position = CGPointMake(CGRectGetMidX(self.frame)+100, 450);
-    [self addChild:_hitCountLabel];
-    [self addChild:_passCountLabel];
     
     SKTexture* flashTexture = [SKTexture textureWithImageNamed:@"flashmask"];
     flashTexture.filteringMode = SKTextureFilteringNearest;
@@ -111,29 +111,29 @@ static const uint32_t bottomCollision = 0x1 << 4;
     
     //[rightWallSpriteNode runAction:moveRightWallSpriteForever];
     
-    SKAction* movedLeftWallSprite = [SKAction moveByX:0 y:-leftWallTxtr.size.height duration:1];
-    SKAction* resetLeftWallSprite = [SKAction moveByX:0 y:leftWallTxtr.size.height duration:0];
+    SKAction* movedLeftWallSprite = [SKAction moveByX:0 y:-2*leftWallTxtr.size.height duration:2];
+    SKAction* resetLeftWallSprite = [SKAction moveByX:0 y:2*leftWallTxtr.size.height duration:0];
     SKAction* moveLeftWallSpriteForever = [SKAction repeatActionForever:[SKAction sequence:@[movedLeftWallSprite, resetLeftWallSprite]]];
     
-    for( int i = 0; i < 2 + (self.frame.size.height/leftWallTxtr.size.height); i++ ) {
+    for( int i = 0; i < 6 /*(self.frame.size.height/leftWallTxtr.size.height)*/; i++ ) {
         // Create the sprite
         SKSpriteNode* leftWallSpriteNode = [SKSpriteNode spriteNodeWithTexture:leftWallTxtr];
         [leftWallSpriteNode setScale:1.0];
-        leftWallSpriteNode.position = CGPointMake(CGRectGetMidX(self.frame)-200,i * 300);
+        leftWallSpriteNode.position = CGPointMake(CGRectGetMidX(self.frame)-200,i * leftWallTxtr.size.height);
         [leftWallSpriteNode runAction:moveLeftWallSpriteForever];
         [self addChild:leftWallSpriteNode];
     }
     
-    SKAction* movedRightWallSprite = [SKAction moveByX:0 y:-rightWallTxtr.size.height duration:1];
-    SKAction* resetRightWallSprite = [SKAction moveByX:0 y:rightWallTxtr.size.height duration:0];
+    SKAction* movedRightWallSprite = [SKAction moveByX:0 y:-2*rightWallTxtr.size.height duration:2];
+    SKAction* resetRightWallSprite = [SKAction moveByX:0 y:2*rightWallTxtr.size.height duration:0];
     SKAction* moveRightWallSpriteForever = [SKAction repeatActionForever:[SKAction sequence:@[movedRightWallSprite, resetRightWallSprite]]];
     
-    for( int i = 0; i < 2 + (self.frame.size.height/rightWallTxtr.size.height); i++ )
+    for( int i = 0; i < 6 /*+ (self.frame.size.height/rightWallTxtr.size.height)*/; i++ )
     {
         // Create the sprite
         SKSpriteNode* rightWallSpriteNode = [SKSpriteNode spriteNodeWithTexture:rightWallTxtr];
         [rightWallSpriteNode setScale:1.0];
-        rightWallSpriteNode.position = CGPointMake(CGRectGetMidX(self.frame)+200,i * 300);
+        rightWallSpriteNode.position = CGPointMake(CGRectGetMidX(self.frame)+200,i * leftWallTxtr.size.height);
         [rightWallSpriteNode runAction:moveRightWallSpriteForever];
         [self addChild:rightWallSpriteNode];
     }
@@ -161,6 +161,17 @@ static const uint32_t bottomCollision = 0x1 << 4;
     //bottomCollisionNode.physicsBody.collisionBitMask = 0x0;
     bottomCollisionNode.physicsBody.contactTestBitMask = bottomCollision;
     [self addChild:bottomCollisionNode];
+    
+    _hitCountLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    _hitCountLabel.text = @"0 hits";
+    _hitCountLabel.fontSize = 30;
+    _hitCountLabel.position = CGPointMake(CGRectGetMidX(self.frame)+100, 500);
+    _passCountLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    _passCountLabel.text = @"0 passed";
+    _passCountLabel.fontSize = 30;
+    _passCountLabel.position = CGPointMake(CGRectGetMidX(self.frame)+100, 450);
+    [self addChild:_hitCountLabel];
+    [self addChild:_passCountLabel];
 }
 
 -(void)makeNewObstacles
@@ -207,7 +218,6 @@ static const uint32_t bottomCollision = 0x1 << 4;
         _playerNode.physicsBody.velocity = CGVectorMake(200, 0);
         _flashlightMask.physicsBody.velocity = CGVectorMake(-200, 0);
     }
-    
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact

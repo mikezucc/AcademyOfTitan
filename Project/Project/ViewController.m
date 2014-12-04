@@ -11,8 +11,6 @@
 @interface ViewController ()
 {
     IBOutlet UIButton *startButton;
-    
-    
 }
 
 @end
